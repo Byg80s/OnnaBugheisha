@@ -10,8 +10,8 @@ using static UnityEditor.Progress;
 
 namespace Assets.Scripts.Items
 {
-   
-    
+
+
     /// <summary>Id items consumibles</summary>
     public struct Consumibles
     {
@@ -134,9 +134,13 @@ namespace Assets.Scripts.Items
     }
 
 
-    public class ItemsConsumibles: ItemsPropierties
+    public class ItemsConsumibles // : ItemsPropierties
     {
         //Variables Generales
+
+
+
+
 
 
         /// <summary>Propierties of consumibles items Class</summary>
@@ -150,13 +154,29 @@ namespace Assets.Scripts.Items
             ConsumibleIts.isConsumbale = isConsumble;
             ConsumibleIts.amount = amount;
 
-            
+
         }
-       
+        /*      
+
+               internal ItemsConsumibles(uint id, int recoveryHp, string type, string name, bool isConsumble, int amount)
+                       {
+
+                           this.iD = id;
+                           this.recoveryHp = recoveryHp;
+                           this.type = type;
+                           this.name = name;
+                           this.isConsumbale = isConsumble;
+                           this.amount = amount;
+
+
+
+                       }
+     
         public override void CreateItem(uint id, int recoveryHp, string type, string name, bool isConsumble, int amount)
         {
 
         }
+            */
 
     }
 
