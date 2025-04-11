@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UIElements;
@@ -21,7 +22,7 @@ public class ItemManager : MonoBehaviour
     public string newname, newType;
 
     public readonly List<WeaponsItems> weapons = new List<WeaponsItems>();
-    public readonly List<ItemsConsumibles> consumibles = new List<ItemsConsumibles>();
+    private readonly List<ItemsConsumibles> consumibles = new List<ItemsConsumibles>();
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -52,7 +53,12 @@ public class ItemManager : MonoBehaviour
         newname = NewConsumible.name;
         newType = NewConsumible.type;
 
-        Debug.Log("Id of first element is: " + idValue);
+
+
+  
+
+
+    Debug.Log("Id of first element is: " + idValue);
         Debug.Log("Name of first element is: " + name);
         Debug.Log("Type is: "+ newType);
       
@@ -75,36 +81,36 @@ public class ItemManager : MonoBehaviour
 
     }
 
-  
-    void Update()
+
+void Update()
+{
+    foreach (var items in consumibles)
     {
-        foreach (var items in consumibles)
-        {
-            Debug.Log(idValue + " " + newname + " " + newType);
-
-        }
-
-
-    }
-    private void OnTriggerEnter(Collider other)
-
-    {
-        if (GameObject == gameObject.CompareTag("Abalone"))
-        {
-
-        }
-
+        Debug.Log(idValue + " " + newname + " " + newType);
 
     }
 
-    protected void ItemsConsumibles()
+
+}
+private void OnTriggerEnter(Collider other)
+
+{
+    if (GameObject == gameObject.CompareTag("Abalone"))
     {
-        Abalone = new ItemsConsumibles(Consumibles.abalone, 10, "Consumible", "Abalone", true, 1);
-        Bold = new ItemsConsumibles(Consumibles.ankoro, 20, "Consumible", "Bold", false, 1);
+
     }
-    protected void ItemsWeapons()
-    {
-        makibishi = new WeaponsItems(Weapons.makibishi, 5, 1, 5, "Makibishi", 1);
-    }
+
+
+}
+
+protected void ItemsConsumibles()
+{
+    Abalone = new ItemsConsumibles(Consumibles.abalone, 10, "Consumible", "Abalone", true, 1);
+    Bold = new ItemsConsumibles(Consumibles.ankoro, 20, "Consumible", "Bold", false, 1);
+}
+protected void ItemsWeapons()
+{
+    makibishi = new WeaponsItems(Weapons.makibishi, 5, 1, 5, "Makibishi", 1);
+}
 
 }
